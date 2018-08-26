@@ -48,7 +48,7 @@ app.get('/allForms', function (req, res) {
 })
 
 //get form fields (fieldName,type)
-app.get('/FormFields/:formId', function (req, res) {
+app.get('/formFields/:formId', function (req, res) {
     DButilsAzure.execQuery("Select FieldName, FieldType from FormField where FormId='" + req.params.formId + "'").then(function (result) {
         res.send(result);
     }).catch(function (err) { res.status(400).send(err); });
@@ -80,5 +80,13 @@ app.put('/addSubmission', function (req, res) {
         }).catch(function (err) { res.status(400).send(err); });
         
         res.sendStatus(200);
+    }).catch(function (err) { res.status(400).send(err); });
+})
+
+
+//get form submissions - as on DB
+app.get('/formSubmission/:formId', function (req, res) {
+    DButilsAzure.execQuery("Select * from FormSubmissions where FormId='" + req.params.formId + "'").then(function (result) {
+        res.send(result);
     }).catch(function (err) { res.status(400).send(err); });
 })
