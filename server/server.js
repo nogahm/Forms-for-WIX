@@ -31,7 +31,7 @@ app.post('/createForm', function (req, res) {
         DButilsAzure.execQuery("INSERT INTO Forms VALUES ('" + id + "', '" + formName + "', '" + count + "')").then(function (result2) {
             //insert fields to FormField table
             for (let i = 0; i < formFields.length; i++) {
-                DButilsAzure.execQuery("INSERT INTO FormField VALUES ('" + id + "', '" + formFields[i].fieldName + "', '" + formFields[i].fieldType + "')").then(function (result3) {
+                DButilsAzure.execQuery("INSERT INTO FormField VALUES ('" + id + "', '" + formFields[i].fieldName + "', '" + formFields[i].fieldType + "', '" + formFields[i].fieldLabel+"')").then(function (result3) {
 
                 }).catch(function (err) { res.status(400).send(err); });
             }
@@ -49,7 +49,7 @@ app.get('/allForms', function (req, res) {
 
 //get form fields (fieldName,type)
 app.get('/formFields/:formId', function (req, res) {
-    DButilsAzure.execQuery("Select FieldName, FieldType from FormField where FormId='" + req.params.formId + "'").then(function (result) {
+    DButilsAzure.execQuery("Select FieldName, FieldType, FieldLabel from FormField where FormId='" + req.params.formId + "'").then(function (result) {
         res.send(result);
     }).catch(function (err) { res.status(400).send(err); });
 })
