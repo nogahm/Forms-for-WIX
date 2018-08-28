@@ -1,1 +1,15 @@
-<h1>TEST</h1>
+<div ng-controller="submitFormController as subCtrl" class="general">
+    <h1>
+        <span>Submit Form</span>
+    </h1>
+    <br>
+    <form id="form" name="form" ng-submit="subCtrl.saveInput()" role="form">
+        <div ng-model="subCtrl.formFields" ng-repeat="field in subCtrl.formFields" >
+            {{field.FieldName}}
+            <input type="field.FieldType" ng-model="field.Input" ng-required="true" class="form-input" placeholder="field.FieldLabel">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <br>
+</div>

@@ -19,6 +19,6 @@ angular.module('Forms')
 
         self.openSubmitPage=function(formId)
         {
-            $location.path("#/submitForm/"+formId);
+            $location.path("/submitForm/"+formId);
         }
     }]);
