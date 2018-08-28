@@ -21,6 +21,24 @@ angular.module('Forms')
             self.result.submit=[];
             for(let i=0;i<self.formFields.length;i++)
             {
+                //check if tel - tel only supported in Safari 8
+                if(self.formFields[i].FieldType=="tel")
+                {
+                    let value=self.formFields[i].Input;
+                    if(value.length!=10)
+                    {
+                        alert("Enter valid tel number");
+                        return;
+                    }
+                    for(let i=0;i<value.length; i++)
+                    {
+                        if(value[i]>"9" || value[i]<"0")
+                        {
+                            alert("Enter valid tel number");
+                            return;
+                        }
+                    }
+                }
                 self.result.submit[i]={"fieldName":self.formFields[i].FieldName,
                                         "value":self.formFields[i].Input};
                 // self.result.submit[i].fieldName=self.formFields[i].fieldName;
