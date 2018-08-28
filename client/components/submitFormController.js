@@ -21,8 +21,8 @@ angular.module('Forms')
             self.result.submit=[];
             for(let i=0;i<self.formFields.length;i++)
             {
-                self.result.submit[i]={"fieldName":self.formFields[i].fieldName,
-                                        "value":self.formFields[i].value};
+                self.result.submit[i]={"fieldName":self.formFields[i].FieldName,
+                                        "value":self.formFields[i].Input};
                 // self.result.submit[i].fieldName=self.formFields[i].fieldName;
                 // self.result.submit[i].value=self.formFields[i].value;
             }
