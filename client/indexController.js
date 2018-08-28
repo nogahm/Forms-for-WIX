@@ -23,7 +23,7 @@ app.config(['$locationProvider', '$routeProvider', function ($locationProvider, 
             templateUrl: 'components/formBuilder.html',
             controller: 'formBuilderController as buildCtrl'
         })
-        .when('/submitForm', {
+        .when('/submitForm/:formId', {
             templateUrl: 'components/submitForm.html',
             controller: 'submitFormController as submitCtrl'
         })
