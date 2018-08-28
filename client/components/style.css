@@ -1,5 +1,8 @@
+/* general */
 .general{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    background-color: #e7e7e7;
 }
 
 h1{
@@ -7,22 +10,57 @@ h1{
     
 }
 
+li {
+    float: left;
+  
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #e7e7e7;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 50px;
+    font-size: 140%;
+    background-color: black;
+}
+
+a {
+    cursor: pointer;
+
+}
+
+/* table */
 table {
     border-collapse: collapse;
-    width: 100%;
+    margin: 0 auto;
 }
 
 th, td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    min-width:150px;
 }
 
+/* button */
 button{
     background-color: white;
-    border: none;
     color: black;
-    padding: 16px 32px;
+    padding: 8px 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -30,10 +68,22 @@ button{
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
-    border: 2px solid #e7e7e7;
+    border: 2px solid grey;
+    border-radius: 4px;
 }
 
 button:hover
 {
-    background-color: #e7e7e7;
+    background-color: grey;
+}
+
+/* form */
+.form-Input{
+    padding: 5px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 150px;   
 }
