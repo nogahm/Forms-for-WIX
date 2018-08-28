@@ -27,5 +27,10 @@ app.config(['$locationProvider', '$routeProvider', function ($locationProvider, 
             templateUrl: 'components/submitForm.html',
             controller: 'submitFormController as submitCtrl'
         })
+        .when('/formSubmissions/:formId', {
+            templateUrl: 'components/formSubmissions.html',
+            controller: 'formSubmissionsController as submissionCtrl'
+        })
         .otherwise({ redirectTo: '/formsList' });
+        
 }]);
