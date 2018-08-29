@@ -13,7 +13,7 @@
                     <th>Submit Page</th>
                     <th>Submissions Page</th>
                 </tr>
-                    <tr ng-model="formsCtrl.formsInfo" ng-repeat="form in formsCtrl.formsInfo">
+                    <tr ng-model="formsCtrl.formsInfo" ng-repeat="form in formsCtrl.formsInfo | orderBy : 'FormId'">
                             <td>{{ form.FormId }}</td>
                             <td>{{ form.FornName }}</td>
                             <td>{{ form.SubmitCount }}</td>

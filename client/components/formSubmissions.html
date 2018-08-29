@@ -1,17 +1,19 @@
 <div ng-controller="formSubmissionsController as submissionCtrl" class="general">
-        <h1>
-            <span>Form Submissions</span>
-        </h1>
-        <br>
-        <div class="table">
-                <table>
-                    <tr>
-                        <th ng-repeat="field in submissionCtrl.formFields">{{ field.FieldName }}</th>
-                    </tr>
-                        <tr ng-repeat="submit in submissionCtrl.submissions">
-                                <td ng-repeat="field in submissionCtrl.formFields">{{ submit[field.FieldName] }}</td>
-                                </td>
-                        </tr>
-                </table>
-        </div>
+    <h1>
+        <span>Form Submissions</span>
+    </h1>
+    <br>
+    <div class="table">
+        <table>
+            <tr>
+                <th ng-repeat="field in submissionCtrl.formFields">{{ field.FieldName }}</th>
+            </tr>
+            <tr ng-repeat="submit in submissionCtrl.subArr track by $index">
+                <td ng-repeat="field in submissionCtrl.formFields">
+                    <div ng-if="field.FieldType!='color'">{{ submit[field.FieldName] }}</div>
+                    <div ng-if="field.FieldType=='color'" style="background-color: {{submit[field.FieldName]}} ">{{ submit[field.FieldName] }}</div>
+                </td>
+            </tr>
+        </table>
     </div>
+</div>
