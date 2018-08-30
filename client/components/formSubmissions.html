@@ -5,13 +5,17 @@
     <br>
     <div class="table">
         <table>
+            <!-- go throw form field for table header -->
             <tr>
                 <th ng-repeat="field in submissionCtrl.formFields">{{ field.FieldName }}</th>
             </tr>
+            <!-- for each submission go throw fields -->
             <tr ng-repeat="submit in submissionCtrl.subArr track by $index">
                 <td ng-repeat="field in submissionCtrl.formFields">
                     <div ng-if="field.FieldType!='color'">{{ submit[field.FieldName] }}</div>
-                    <div ng-if="field.FieldType=='color'" style="background-color: {{submit[field.FieldName]}} ">{{ submit[field.FieldName] }}</div>
+                    <div ng-if="field.FieldType=='color'" style="background-color: {{submit[field.FieldName]}} ">{{ submit[field.FieldName]
+                        }}
+                    </div>
                 </td>
             </tr>
         </table>

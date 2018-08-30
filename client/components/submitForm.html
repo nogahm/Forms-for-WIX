@@ -5,10 +5,10 @@
     <br>
     <form id="form" name="form" ng-submit="subCtrl.saveInput()" role="form">
         <!-- go throw all field and build form -->
-        <div ng-model="subCtrl.formFields" ng-repeat="field in subCtrl.formFields" >
+        <div ng-model="subCtrl.formFields" ng-repeat="field in subCtrl.formFields">
             {{field.FieldName}}
             <input type="{{field.FieldType}}" ng-model="field.Input" ng-required="true" class="form-input" placeholder="{{field.FieldLabel}}">
-        <br>
+            <br>
         </div>
         <button type="submit">Submit</button>
     </form>

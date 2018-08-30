@@ -1,28 +1,29 @@
 <div ng-controller="formsListController as formsCtrl" class="general">
-    <h1>
-            <span>List Of All Forms</span>
-    </h1>
-    <br>
+        <h1>
+                <span>List Of All Forms</span>
+        </h1>
+        <br>
 
-    <div class="table">
-            <table>
-                <tr>
-                    <th>Form Id</th>
-                    <th>Form Name</th>
-                    <th># Submissions</th>
-                    <th>Submit Page</th>
-                    <th>Submissions Page</th>
-                </tr>
-                    <tr ng-model="formsCtrl.formsInfo" ng-repeat="form in formsCtrl.formsInfo | orderBy : 'FormId'">
-                            <td>{{ form.FormId }}</td>
-                            <td>{{ form.FornName }}</td>
-                            <td>{{ form.SubmitCount }}</td>
-                            <td><a ng-click="formsCtrl.openSubmitPage(form.FormId)">View</a></td>
-                            <td><a ng-click="formsCtrl.openSubmissionsPage(form.FormId)">View</a></td>
-                    </tr>
-            </table>
-    </div>
-    <br>
-    <br>
-    <button ng-click="formsCtrl.createForm()">Create New Form</button>
+        <div class="table">
+                <table>
+                        <tr>
+                                <th>Form Id</th>
+                                <th>Form Name</th>
+                                <th># Submissions</th>
+                                <th>Submit Page</th>
+                                <th>Submissions Page</th>
+                        </tr>
+                        <!-- repeat all forms from controller -->
+                        <tr ng-model="formsCtrl.formsInfo" ng-repeat="form in formsCtrl.formsInfo | orderBy : 'FormId'">
+                                <td>{{ form.FormId }}</td>
+                                <td>{{ form.FornName }}</td>
+                                <td>{{ form.SubmitCount }}</td>
+                                <td><a ng-click="formsCtrl.openSubmitPage(form.FormId)">View</a></td>
+                                <td><a ng-click="formsCtrl.openSubmissionsPage(form.FormId)">View</a></td>
+                        </tr>
+                </table>
+        </div>
+        <br>
+        <br>
+        <button ng-click="formsCtrl.createForm()">Create New Form</button>
 </div>

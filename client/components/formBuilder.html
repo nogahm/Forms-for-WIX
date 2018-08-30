@@ -6,31 +6,25 @@
 
     <!-- place to enter new field -->
     <form id="fieldsForm" name="addField" ng-submit="buildCtrl.addField()" role="form">
-        <input type="text" ng-model="buildCtrl.lable" ng-required="true" class="form-Input" name="lable" placeholder="Enter field lable">
         <input type="text" ng-model="buildCtrl.name" ng-required="true" class="form-Input" name="name" placeholder="Enter input name">
-        Choose input type: <select ng-model="buildCtrl.type" ng-options="type for type in buildCtrl.types" ng-required="true" class="form-Input" name="type">Choose field type</select>
+        <input type="text" ng-model="buildCtrl.lable" ng-required="true" class="form-Input" name="lable" placeholder="Enter field lable">        Choose
+        input type: <select ng-model="buildCtrl.type" ng-options="type for type in buildCtrl.types" ng-required="true" class="form-Input"
+            name="type">Choose field type</select>
         <button type="submit">Add Field</button>
     </form>
 
     <!-- shows fields that created -->
-    <table ng-hide="buildCtrl.index==0">
-        <tr>
-            <th>Field Label</th>
-            <th>Input Name</th>
-            <th>Input Type</th>
-        </tr>
-        <tr ng-model="buildCtrl.fields" ng-repeat="field in buildCtrl.fields">
-            <td>{{ field.fieldLabel }}</td>
-            <td>{{ field.fieldName }}</td>
-            <td>{{ field.fieldType }}</td>
-        </tr>
-    </table>
-<br>
-<br>
-<br>
+    <b ng-hide="buildCtrl.index==0"> Your Form: </b>
+    <div ng-model="buildCtrl.fields" ng-repeat="field in buildCtrl.fields">
+        {{field.fieldName}}
+        <input type="{{field.fieldType}}" ng-required="true" class="form-input" placeholder="{{field.fieldLabel}}">
+        <br>
+    </div>
+    <br>
+    <br>
     <!-- input for form name -->
     <input type="text" ng-model="buildCtrl.formName" class="form-Input" name="formName" placeholder="Enter form name">
-<br>
+    <br>
     <!-- create and save the form -->
     <button ng-disabled="buildCtrl.index==0" ng-click="buildCtrl.saveForm()"> Save Form </button>
 </div>

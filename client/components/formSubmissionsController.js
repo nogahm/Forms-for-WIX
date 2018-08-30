@@ -6,7 +6,8 @@ angular.module('Forms')
         self.formFields = []; //field from DB
         self.submissions = [];
         self.subArr = [];
-        //get all form fields
+
+        //get all form fields from DB
         $http.get(serverUrl + "formFields/" + self.formId).then(function (res) {
             self.formFields = res.data;
         }, function (res) {
@@ -16,7 +17,8 @@ angular.module('Forms')
 
         //get all form submissions into array
         $http.get(serverUrl + "formSubmission/" + self.formId).then(function (res) {
-            let formsub = res.data;
+            let formsub = res.data; //format: {formId, submissionId, fieldName, inputValue}
+            //save in format [submissionId]=["index"=fieldName, "value"=inputValue]
             for (let i = 0; i < formsub.length; i++) {
                 let subId = formsub[i].SubmissionId;
                 let fieldName = formsub[i].FieldName;
@@ -25,7 +27,7 @@ angular.module('Forms')
                 }
                 (self.submissions[subId])[fieldName] = formsub[i].InputValue;
             }
-            //copy to array
+            //copy to array with runing index
             let index = 0;
             for (let i = 0; i < self.submissions.length; i++) {
                 if (typeof self.submissions[i] !== "undefined") {
@@ -37,4 +39,5 @@ angular.module('Forms')
             alert('Form Submission Not Found');
         }
         );
+
     }]);
