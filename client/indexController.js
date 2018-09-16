@@ -1,4 +1,4 @@
-let app = angular.module('Forms', ["ngRoute"]);
+let app = angular.module('Forms', ['ngRoute','vcRecaptcha']);
 
 app.config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('');
